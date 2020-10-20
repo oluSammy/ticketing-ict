@@ -1,0 +1,25 @@
+@import '../../sass/Abstracts/variables';
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    position: relative;
+
+    &__nav {
+        grid-column: 1 / -1;
+        z-index: 3;
+    }
+
+    &__sidebar {
+        position: fixed;
+        width: 20vw;
+        z-index: 1;
+    }
+
+    &__main {
+        grid-column: 2 / -1;
+        background-color: $color-grey-light;
+        min-height: 80vh;
+        padding: 2rem;
+    }
+}
