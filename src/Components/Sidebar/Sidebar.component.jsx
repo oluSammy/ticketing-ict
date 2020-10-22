@@ -22,27 +22,27 @@ const Sidebar = () => {
                     <AiFillHome className="sidebar__link-icon" />
                     <span>Home</span>
                 </NavLink>
-                <NavLink to="/new-task" className="sidebar__link">
+                <NavLink to="/new-task" className="sidebar__link" activeClassName="sidebar__active" >
                     <AiOutlineAppstoreAdd className="sidebar__link-icon" />
                     <span>Raise Ticket</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/pending" className="sidebar__link" activeClassName="sidebar__active" >
                     <AiOutlineClockCircle className="sidebar__link-icon" />
                     <span>pending</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/due-today" className="sidebar__link" activeClassName="sidebar__active" >
                     <BiCalendarWeek className="sidebar__link-icon" />
                     <span>Due Today</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/overdue" className="sidebar__link" activeClassName="sidebar__active" >
                     <BiCommentError className="sidebar__link-icon" />
                     <span>Overdue</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/completed" className="sidebar__link" activeClassName="sidebar__active" >
                     <BiCheckDouble className="sidebar__link-icon" />
                     <span>Completed</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/register-staff" className="sidebar__link" activeClassName="sidebar__active" >
                     <FiUserPlus className="sidebar__link-icon" />
                     <span>Register Staff</span>
                 </NavLink>

@@ -23,6 +23,10 @@ const NewTask = () => {
                     <input type="text" className="new-task__input" id="designation" name="designation" required />
                 </div>
                 <div className="new-task__form-group">
+                    <label htmlFor="title" className="new-task__label">Title:</label>
+                    <input type="text" className="new-task__input" id="title" name="title" required />
+                </div>
+                <div className="new-task__form-group">
                     <label htmlFor="task" className="new-task__label">Task:</label>
                     <textarea className="new-task__input" name="task" id="task" cols="30" rows="4" required
                     style={{padding: '1rem', fontSize: '1.9rem'}} />

@@ -1,0 +1,105 @@
+@import '../../sass/Abstracts/variables';
+
+.tickets__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, .91fr));
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+
+.ticket {
+    background-color: #FFF;
+    padding: 1rem;
+    border-radius: .7rem;
+    box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.75);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .1s;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.3rem;
+    }
+
+    &__status {
+        margin-right: auto;
+        background-color: $color-warning-light;
+        padding: .3rem .5rem;
+        border-radius: .3rem;
+        color: $warning-text;
+    }
+
+    &__assigned-to {
+        display: flex;
+        align-items: center;
+    }
+
+    &__unassigned {
+        font-size: 1.4rem;
+        color: red;
+    }
+
+    &__btn {
+        background-color: $color-primary;
+        color: $color-white;
+        padding: .3rem 1rem;
+        border: none;
+        cursor: pointer;
+        border-radius: .3rem;
+        text-transform: capitalize;
+        box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
+    }
+
+    &__symbol {
+        font-size: .9rem;
+        color: $color-grey-dark;
+    }
+
+    &__staff-assigned {
+        font-size: 1.2rem;
+        margin-left: .7rem;
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        color: $text-color;
+    }
+
+    &__content {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__sender {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.3rem;
+    }
+
+    &__raised-by {
+        margin-right: 1rem;
+    }
+
+    &__details {
+        display: flex;
+        align-items: center;
+    }
+
+    &__created {
+        font-size: 1.1rem;
+        color: $color-grey-dark-2;
+        margin-right: auto;
+    }
+
+    &__assigned {
+        font-size: 1.1rem;
+        color: $warning-text;
+    }
+}
+
+
