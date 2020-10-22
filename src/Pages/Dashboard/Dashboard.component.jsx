@@ -2,6 +2,7 @@ import React from 'react';
 import './Dashboard.styles.scss';
 import Navbar from './../../Components/Navbar/Navbar.component';
 import Sidebar from '../../Components/Sidebar/Sidebar.component';
+import DashboardMain from '../DashboardMain/DashboardMain.component';
 
 
 const Dashboard = () => {
@@ -14,7 +15,7 @@ const Dashboard = () => {
                 <Sidebar />
             </div>
             <div className="dashboard__main">
-                <h1>Dashboard Main</h1>
+                <DashboardMain />
             </div>
         </div>
     )

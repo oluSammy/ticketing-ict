@@ -32,7 +32,7 @@ const Sidebar = () => {
                 </NavLink>
                 <NavLink to="/" className="sidebar__link">
                     <BiCalendarWeek className="sidebar__link-icon" />
-                    <span>Due</span>
+                    <span>Due Today</span>
                 </NavLink>
                 <NavLink to="/" className="sidebar__link">
                     <BiCommentError className="sidebar__link-icon" />
