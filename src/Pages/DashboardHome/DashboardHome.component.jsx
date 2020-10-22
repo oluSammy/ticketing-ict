@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './DashboardHome.styles.scss';
-import { AiFillHome, AiOutlineClockCircle, AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { AiOutlineClockCircle, AiOutlineAppstoreAdd } from 'react-icons/ai';
 import { BiCalendarWeek, BiCommentError, BiCheckDouble } from 'react-icons/bi';
 
 const DashboardHome = () => {
     return (
         <div className="dashboardHome">
             <div className="dashboardHome__container">
-                <Link className="dashboardHome__box">
+                <Link to="/new-task" className="dashboardHome__box">
                     <div className="dashboardHome__box--header">
                         <div className="dashboardHome__box--title">Raise Ticket</div>
                         <AiOutlineAppstoreAdd className="dashboardHome__box--icon" />
@@ -22,7 +22,7 @@ const DashboardHome = () => {
                     </div>
                     <div className="dashboardHome__box--symbol">&#9775;</div>
                 </Link>
-                <Link className="dashboardHome__box">
+                <Link to="/" className="dashboardHome__box">
                     <div className="dashboardHome__box--header">
                         <div className="dashboardHome__box--title">Due Today</div>
                         <BiCalendarWeek className="dashboardHome__box--icon" />

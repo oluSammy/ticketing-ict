@@ -22,7 +22,7 @@ const Sidebar = () => {
                     <AiFillHome className="sidebar__link-icon" />
                     <span>Home</span>
                 </NavLink>
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/new-task" className="sidebar__link">
                     <AiOutlineAppstoreAdd className="sidebar__link-icon" />
                     <span>Raise Ticket</span>
                 </NavLink>
