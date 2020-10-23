@@ -27,7 +27,9 @@
     }
 
     &__list {
-        // color: $color-white;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
     }
 
     &__link {

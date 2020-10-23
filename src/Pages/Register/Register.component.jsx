@@ -32,7 +32,7 @@ const Register = () => {
                 </div>
                 <div className="register__form-group">
                     <label htmlFor="school" className="register__label">School:</label>
-                    <select name="" id="school" className="register-staff__input register-staff__select" className="register__input" >
+                    <select id="school" className="register-staff__input register-staff__select register__input" >
                         <option value="" className="register-staff__option">Select School</option>
                         <option value="college" className="register-staff__option">College</option>
                         <option value="primary" className="register-staff__option">Primary</option>

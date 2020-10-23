@@ -3,6 +3,7 @@ import './Navbar.styles.scss';
 import { AiOutlineLogout, AiOutlineHome } from 'react-icons/ai';
 // import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import { auth } from './../../firebase/firebase.utils';
 
 const Navbar = () => {
     return (
@@ -16,10 +17,10 @@ const Navbar = () => {
                     <span>Home</span>
                     <AiOutlineHome className="nav__link-icon" />
                 </Link>
-                <Link to="/" className="nav__link">
+                <li onClick={() => auth.signOut()} className="nav__link">
                     <span>Sign out</span>
                     <AiOutlineLogout className="nav__link-icon" />
-                </Link>
+                </li>
             </ul>
         </div>
     )

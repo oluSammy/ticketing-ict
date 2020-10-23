@@ -1,6 +1,5 @@
 import React from 'react';
 import './Ticket.styles.scss';
-import { BiCheckDouble } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
 
