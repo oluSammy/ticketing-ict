@@ -9,7 +9,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectUserDetail } from '../../Redux/user/user.selectors';
 import { asyncGetUserDetail } from '../../Redux/user/user.actions';
 import { selectCurrentUser, selectIsGettingUserDetail } from './../../Redux/user/user.selectors';
-import Loader from 'react-loader-spinner'
+import Loader from 'react-loader-spinner';
 
 
 const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail }) => {
