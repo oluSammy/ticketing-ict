@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser, selectUserDetail } from './../../Redux/user/user.selectors';
 import { asyncAddTicket } from './../../Redux/NewTask/NewTask.actions';
+import { selectIsAddingTicket } from '../../Redux/NewTask/NewTask.selectors';
 
-const NewTask = ({ currentUser, userDetail, addTask }) => {
+const NewTask = ({ currentUser, userDetail, addTask, isAddingTickets }) => {
     const [ticket, setTicket] = useState({ name: '', email: currentUser ? currentUser.email : '',
     designation: '', title: '', task: '' });
 
@@ -56,7 +57,9 @@ const NewTask = ({ currentUser, userDetail, addTask }) => {
                     <textarea onChange={handleChange} className="new-task__input" name="task" id="task" cols="30" rows="4" required
                     style={{padding: '1rem', fontSize: '1.9rem'}} value={ticket.task} />
                 </div>
-                <input type="submit" value="Submit" className="new-task__btn" />
+                {isAddingTickets ?
+                <button className="new-task__btn">wait</button> :
+                <input type="submit" value="Submit" className="new-task__btn" />}
             </form>
         </div>
     )
@@ -64,7 +67,8 @@ const NewTask = ({ currentUser, userDetail, addTask }) => {
 
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
-    userDetail: selectUserDetail
+    userDetail: selectUserDetail,
+    isAddingTickets: selectIsAddingTicket
 });
 
 const mapDispatchToProps = dispatch => ({

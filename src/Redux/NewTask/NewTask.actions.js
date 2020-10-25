@@ -40,6 +40,11 @@ export const asyncAddTicket = ticket => {
             );
         } catch (errMsg) {
             dispatch(addTicketFailure(errMsg));
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+            });
         }
     }
 }

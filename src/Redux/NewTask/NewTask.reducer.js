@@ -23,5 +23,8 @@ const newTicketReducer = (state=INIT_STATE, action) => {
                 isAddingTicket: false,
                 addTicketErrMsg: action.payload
             }
+        default: return state
     }
 }
+
+export default newTicketReducer;
