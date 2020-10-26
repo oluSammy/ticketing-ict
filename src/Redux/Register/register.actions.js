@@ -30,7 +30,8 @@ export const asyncRegisterStaff = staff => {
                     firstName,
                     surname: lastName,
                     userRight: 'staff',
-                    designation
+                    designation,
+                    email
                 });
             });
             dispatch(registerSuccess());

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Ticket = () => {
     return (
-        <Link to="/" className="ticket">
+        <Link to="/ticket/id" className="ticket">
             <div className="ticket__header">
                 <h4 className="ticket__status">Resolved <span></span> </h4>
                 <div className="ticket__assigned-to">

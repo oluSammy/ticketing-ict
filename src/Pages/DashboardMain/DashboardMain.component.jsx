@@ -7,6 +7,7 @@ import DueToday from './../DueToday/DueToday.component';
 import Overdue from './../Overdue/Overdue.component';
 import Completed from './../Completed/Completed.component';
 import Register from './../Register/Register.component';
+import TicketPage from './../TicketPage/TicketPage.component';
 
 
 const DashboardMain = () => {
@@ -20,6 +21,7 @@ const DashboardMain = () => {
                 <Route exact path="/overdue" component={Overdue} />
                 <Route exact path="/completed" component={Completed} />
                 <Route exact path="/register-staff" component={Register} />
+                <Route exact path="/ticket/:id" component={TicketPage} />
             </Switch>
         </div>
     )

@@ -1,0 +1,30 @@
+@import '../../sass/Abstracts/variables';
+
+.ticket-page {
+    padding: 1rem;
+
+    &__header {
+        display: flex;
+        font-size: 3rem;
+        color: $color-primary;
+
+        &-icon {
+            margin-right: 1rem;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 15rem .6fr;
+        margin-top: 2rem;
+    }
+
+    &__label {
+        font-size: 2rem;
+        color: $text-color;
+    }
+
+    &__key {
+        font-size: 1.7rem;
+    }
+}

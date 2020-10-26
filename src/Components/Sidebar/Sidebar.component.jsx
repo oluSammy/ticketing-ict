@@ -38,7 +38,7 @@ const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail }
                             />
                         </div> : userDetail &&
                     <div>
-                        <p className="sidebar__user--text sidebar__user--name">{`${userDetail.surname} ${userDetail.firstName}`}</p>
+                        <p className="sidebar__user--text sidebar__user--name">{`${userDetail.firstName} ${userDetail.surname}`}</p>
                         <p className="sidebar__user--text sidebar__user--designation">{userDetail.designation}</p>
                     </div>
                     }
