@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import userReducer from './user/user.reducer';
 import newTicketReducer from './NewTask/NewTask.reducer';
 import pendingReducer from './Pending/Pending.reducer';
+import dueTodayReducer from './DueToday/DueToday.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -14,7 +15,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user: userReducer,
     newTask: newTicketReducer,
-    pending: pendingReducer
+    pending: pendingReducer,
+    dueToday: dueTodayReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

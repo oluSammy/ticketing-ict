@@ -20,7 +20,7 @@ const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
             await getPendingTasks(`${userDetail.firstName} ${userDetail.surname}`);
         }
         userDetail && !pendingTasks && getTasks();
-    }, [userDetail]);
+    }, [userDetail, getPendingTasks, pendingTasks]);
 
     const getMoreTasks = async () => {
         await getMorePendingTasks(`${userDetail.firstName} ${userDetail.surname}`, prevDoc);
@@ -49,7 +49,7 @@ const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
                 <TicketLoader />
             </div> :
             <div className="tickets__container">
-                {pendingTasks && pendingTasks.map(task => <Ticket key={task.id} />)}
+                {pendingTasks && pendingTasks.map(task => <Ticket key={task.id} ticket={task} type="pending" />)}
                 {prevDoc !== undefined &&
                 <div onClick={() => getMoreTasks()} style={{display: 'flex', justifyContent: 'center'}} >
                     <MoreButton />

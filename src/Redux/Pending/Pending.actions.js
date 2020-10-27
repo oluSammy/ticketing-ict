@@ -39,7 +39,7 @@ export const asyncGetPending = staffName => {
         try {
             dispatch(getPendingStart());
             const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
-            .where('completed', '==', false).limit(1);
+            .where('completed', '==', false).limit(10);
             pendingRef.onSnapshot(docSnapshot => {
                 const pendingTasks = [];
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
@@ -58,7 +58,7 @@ export const asyncGetMorePending = (staffName, prevDoc) => {
         try {
             dispatch(getMorePendingStart());
             const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
-            .where('completed', '==', false).startAfter(prevDoc).limit(1);
+            .where('completed', '==', false).startAfter(prevDoc).limit(10);
             pendingRef.onSnapshot(docSnapshot => {
                 const pendingTasks = [];
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
