@@ -5,6 +5,7 @@ import userReducer from './user/user.reducer';
 import newTicketReducer from './NewTask/NewTask.reducer';
 import pendingReducer from './Pending/Pending.reducer';
 import dueTodayReducer from './DueToday/DueToday.reducer';
+import overdueReducer from './Overdue/overdue.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     user: userReducer,
     newTask: newTicketReducer,
     pending: pendingReducer,
-    dueToday: dueTodayReducer
+    dueToday: dueTodayReducer,
+    overdue: overdueReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -1,6 +1,6 @@
 import React from 'react';
-import MoreButton from '../../Components/MoreButton/MoreButton.component';
-import Ticket from './../../Components/Ticket/Ticket.component';
+// import MoreButton from '../../Components/MoreButton/MoreButton.component';
+// import Ticket from './../../Components/Ticket/Ticket.component';
 import { BiCheckDouble } from 'react-icons/bi'
 
 const Completed = () => {
@@ -11,11 +11,11 @@ const Completed = () => {
                 <BiCheckDouble className="pending__icon" />
             </div>
             <div className="tickets__container">
+                {/* <Ticket />
                 <Ticket />
                 <Ticket />
                 <Ticket />
-                <Ticket />
-                <MoreButton />
+                <MoreButton /> */}
             </div>
         </div>
     )

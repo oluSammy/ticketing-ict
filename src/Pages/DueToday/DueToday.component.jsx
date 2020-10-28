@@ -65,7 +65,7 @@ const mapStateToProps = createStructuredSelector({
     isGettingDue: selectIsGettingDueToday,
     dueToday: selectDueTodayTasks,
     prevDoc: selectDueTodayPrevDoc
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     getDueToday: staffName => dispatch(asyncGetDueToday(staffName)),

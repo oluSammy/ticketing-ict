@@ -7,11 +7,14 @@ import { limitSentence } from './../../utility-functions/limitSentence';
 
 
 const Ticket = ({ ticket, type }) => {
-    const { createdAt, deadline, title, task, senderName } = ticket.data
+    const { createdAt, deadline, title, task, senderName, completed } = ticket.data
     return (
         <Link to={`/ticket/${ticket.id}`} className="ticket">
             <div className="ticket__header">
-                <h4 className="ticket__status">Resolved <span></span> </h4>
+                {completed ?
+                <h4 className="ticket__status">Completed <span></span> </h4> :
+                <h4 className="ticket__status">Incomplete <span></span> </h4>
+                }
                 <div className="ticket__assigned-to">
                     <span>Assigned To &rarr; </span>
                     <h6 className="ticket__staff-assigned">Me</h6>
