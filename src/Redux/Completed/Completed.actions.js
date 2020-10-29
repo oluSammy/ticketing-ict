@@ -17,7 +17,7 @@ const getCompletedFailure = errMsg => ({
 });
 
 const setCompletedPrevDoc = prevDoc => ({
-    type: completedActionTypes.SET_PREV_DOC,
+    type: completedActionTypes.SET_COMPLETED_PREV_DOC,
     payload: prevDoc
 });
 

@@ -45,7 +45,7 @@ const overdueReducer = (state=INIT_STATE, action) => {
                 isGettingMoreOverDue: false,
                 getMoreErrMsg: action.payload
             }
-        case overdueActionTypes.SET_PREV_DOC:
+        case overdueActionTypes.SET_OVERDUE_PREV_DOC:
             return {
                 ...state,
                 prevDoc: action.payload

@@ -11,6 +11,7 @@ import TicketLoader from './../../Components/TicketLoader/TicketLoader.component
 import { selectIsGettingPending, selectPendingTasks, selectPendingPrevDoc } from './../../Redux/Pending/Pending.selecors';
 import { selectIsGettingUserDetail } from './../../Redux/user/user.selectors';
 import Loader from 'react-loader-spinner';
+import EmptyTasks from './../../Components/EmptyTasks/EmptyTasks.component';
 
 const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
     isGettingUserDetail, getMorePendingTasks, prevDoc }) => {
@@ -54,6 +55,10 @@ const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
                 <div onClick={() => getMoreTasks()} style={{display: 'flex', justifyContent: 'center'}} >
                     <MoreButton />
                 </div>}
+            </div>}
+            {pendingTasks && !pendingTasks.length &&
+            <div className="empty-task-container">
+                <EmptyTasks title='pending' />
             </div>}
         </div>
     )

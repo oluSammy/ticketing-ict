@@ -11,6 +11,7 @@ import Loader from 'react-loader-spinner';
 import { selectDueTodayPrevDoc, selectIsGettingDueToday } from '../../Redux/DueToday/DueToday.selectors';
 import TicketLoader from './../../Components/TicketLoader/TicketLoader.component';
 import { selectDueTodayTasks } from './../../Redux/DueToday/DueToday.selectors';
+import EmptyTasks from './../../Components/EmptyTasks/EmptyTasks.component';
 
 
 const DueToday = ({ getDueToday, userDetail, isGettingUserDetail, isGettingDue, dueToday, prevDoc, getMoreTasks }) => {
@@ -49,12 +50,15 @@ const DueToday = ({ getDueToday, userDetail, isGettingUserDetail, isGettingDue, 
                 </div> :
                 <div className="tickets__container">
                     {dueToday && dueToday.map(task => <Ticket key={task.id} ticket={task} type='due-today' />)}
-                    {prevDoc !== undefined &&
+                    {dueToday && !dueToday.length && prevDoc !== undefined &&
                     <div onClick={getMoreDueTasks} style={{display: 'flex', justifyContent: 'center'}} >
                         <MoreButton />
                     </div>}
-                </div>
-            }
+                </div>}
+                {dueToday && !dueToday.length &&
+                <div className="empty-task-container">
+                    <EmptyTasks title='due' />
+                </div>}
         </div>
     )
 }

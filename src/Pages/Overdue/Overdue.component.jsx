@@ -10,6 +10,7 @@ import { selectOverdueTasks, selectOverDuePrevDoc, isGettingOverdueTasks } from 
 import { selectIsGettingUserDetail } from './../../Redux/user/user.selectors';
 import Loader from 'react-loader-spinner';
 import TicketLoader from '../../Components/TicketLoader/TicketLoader.component';
+import EmptyTasks from './../../Components/EmptyTasks/EmptyTasks.component';
 
 const Overdue = ({ getOverdueTasks, userDetail, overDueTasks, isGettingUserDetail,
     prevDoc, isGettingOverdue, getMoreOverdue }) => {
@@ -49,13 +50,15 @@ const Overdue = ({ getOverdueTasks, userDetail, overDueTasks, isGettingUserDetai
                 </div> :
                 <div className="tickets__container">
                     {overDueTasks && overDueTasks.map(task => <Ticket key={task.id} ticket={task} type='overdue' />)}
-                    {prevDoc !== undefined &&
+                    {overDueTasks && prevDoc !== undefined ?
                     <div onClick={getMoreTasks} style={{display: 'flex', justifyContent: 'center'}} >
                         <MoreButton />
-                    </div>}
-                </div>
-                }
-                {/* <MoreButton /> */}
+                    </div> : ''}
+                </div>}
+                {overDueTasks && !overDueTasks.length &&
+                <div className="empty-task-container">
+                    <EmptyTasks title='due' />
+                </div>}
         </div>
     )
 }

@@ -15,8 +15,8 @@ const getPendingFailure = errMsg => ({
     payload: errMsg
 });
 
-const setPrevDoc = prevDoc => ({
-    type: pendingActionTypes.SET_PREV_DOC,
+const setPendingPrevDoc = prevDoc => ({
+    type: pendingActionTypes.SET_PENDING_PREV_DOC,
     payload: prevDoc
 });
 
@@ -45,7 +45,7 @@ export const asyncGetPending = staffName => {
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
                 dispatch(getPendingSuccess(pendingTasks));
                 const lastDoc = docSnapshot.docs[docSnapshot.docs.length - 1];
-                dispatch(setPrevDoc(lastDoc));
+                dispatch(setPendingPrevDoc(lastDoc));
             });
         } catch (errMsg) {
             dispatch(getPendingFailure(errMsg));
@@ -64,7 +64,7 @@ export const asyncGetMorePending = (staffName, prevDoc) => {
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
                 dispatch(getMorePendingSuccess(pendingTasks));
                 const lastDoc = docSnapshot.docs[docSnapshot.docs.length - 1];
-                dispatch(setPrevDoc(lastDoc));
+                dispatch(setPendingPrevDoc(lastDoc));
             });
         } catch (errMsg) {
             dispatch(getMorePendingFailure())

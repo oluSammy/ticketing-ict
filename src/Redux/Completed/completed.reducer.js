@@ -28,7 +28,7 @@ const completedReducer = (state=INIT_STATE, action) => {
                 isGettingCompleted: false,
                 completedErrMsg: action.payload
             }
-        case completedActionTypes.SET_PREV_DOC:
+        case completedActionTypes.SET_COMPLETED_PREV_DOC:
             return {
                 ...state,
                 prevDoc: action.payload

@@ -28,7 +28,7 @@ const pendingReducer = (state=INIT_STATE, action) => {
                 isGettingPending: false,
                 pendingErrMsg: action.payload
             }
-        case pendingActionTypes.SET_PREV_DOC:
+        case pendingActionTypes.SET_PENDING_PREV_DOC:
             return {
                 ...state,
                 prevDoc: action.payload

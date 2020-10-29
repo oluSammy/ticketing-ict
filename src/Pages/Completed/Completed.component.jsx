@@ -10,6 +10,7 @@ import { selectCompletedTasks, selectIsGettingCompleted, selectCompletedPrevDoc 
 import { selectIsGettingUserDetail } from './../../Redux/user/user.selectors';
 import Loader from 'react-loader-spinner';
 import TicketLoader from './../../Components/TicketLoader/TicketLoader.component';
+import EmptyTasks from './../../Components/EmptyTasks/EmptyTasks.component';
 
 const Completed = ({ getCompletedTasks, userDetail, completed, isGettingUserDetail,
     isGettingCompleted, prevDoc, getMoreCompletedTasks }) => {
@@ -44,10 +45,14 @@ const Completed = ({ getCompletedTasks, userDetail, completed, isGettingUserDeta
                 </div> :
                 <div className="tickets__container">
                     {completed && completed.map(task => <Ticket key={task.id} ticket={task} type='completed' />)}
-                    {prevDoc !== undefined &&
+                    {prevDoc !== undefined ?
                     <div onClick={getMoreTasks} style={{display: 'flex', justifyContent: 'center'}} >
                         <MoreButton />
-                    </div>}
+                    </div> : ''}
+                </div>}
+                {completed && !completed.length &&
+                <div className="empty-task-container">
+                    <EmptyTasks title='completed' />
                 </div>}
         </div>
     )

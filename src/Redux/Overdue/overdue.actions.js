@@ -16,7 +16,7 @@ const getOverdueFailure = errMsg => ({
 });
 
 const setDuePrevDoc = prevDoc => ({
-    type: overdueActionTypes.SET_PREV_DOC,
+    type: overdueActionTypes.SET_OVERDUE_PREV_DOC,
     payload: prevDoc
 });
 

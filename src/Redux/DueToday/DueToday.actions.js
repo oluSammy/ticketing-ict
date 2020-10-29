@@ -15,8 +15,8 @@ const getDueTodayFailure = errMsg => ({
     payload: errMsg
 });
 
-const setPrevDoc = prevDoc => ({
-    type: dueTodayActionTypes.SET_PREV_DOC,
+const setDuePrevDocs = prevDoc => ({
+    type: dueTodayActionTypes.SET_DUE_PREV_DOC,
     payload: prevDoc
 });
 
@@ -49,7 +49,7 @@ export const asyncGetDueToday = (staffName) => {
                 });
                 const lastDoc = docSnapshot.docs[docSnapshot.docs.length - 1];
                 dispatch(getDueTodaySuccess(tasks));
-                dispatch(setPrevDoc(lastDoc));
+                dispatch(setDuePrevDocs(lastDoc));
             })
         } catch (errMsg) {
             dispatch(getDueTodayFailure(errMsg));
@@ -72,7 +72,7 @@ export const asyncGetMoreDueToday = (staffName, prevDoc) => {
                 });
                 const lastDoc = docSnapshot.docs[docSnapshot.docs.length - 1];
                 dispatch(getMoreDueTodaySuccess(tasks));
-                dispatch(setPrevDoc(lastDoc));
+                dispatch(setDuePrevDocs(lastDoc));
             })
 
         } catch (errMsg) {
