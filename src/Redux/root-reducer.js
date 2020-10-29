@@ -7,6 +7,7 @@ import pendingReducer from './Pending/Pending.reducer';
 import dueTodayReducer from './DueToday/DueToday.reducer';
 import overdueReducer from './Overdue/overdue.reducer';
 import ticketReducer from './Ticket/ticket.reducer';
+import completedReducer from './Completed/completed.reducer';
 
 const persistConfig = {
     key: 'root',
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
     pending: pendingReducer,
     dueToday: dueTodayReducer,
     overdue: overdueReducer,
-    ticket: ticketReducer
+    ticket: ticketReducer,
+    completed: completedReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

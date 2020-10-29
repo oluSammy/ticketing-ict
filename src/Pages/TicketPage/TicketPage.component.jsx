@@ -65,6 +65,10 @@ const TicketPage = ({ getCurrentTicket, isGettingTicket, ticket, completeTask })
                     <div className="ticket-page__key">{dateBeforeDeadline(ticket.deadline)}</div>
                     }
                 </div>
+                {ticket.completed && ticket.completedOn && <div className="ticket-page__content">
+                    <h6 className="ticket-page__label">Completed On:</h6>
+                    <div className="ticket-page__key">{timeStampToDate(ticket.completedOn)}</div>
+                </div>}
             </div>
         }
         </>
