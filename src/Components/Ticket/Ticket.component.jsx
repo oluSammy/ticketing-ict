@@ -2,7 +2,7 @@ import React from 'react';
 import './Ticket.styles.scss';
 import { Link } from 'react-router-dom';
 import { dateBeforeDeadline } from '../../utility-functions/timestampToDate';
-import { timeStampToDate } from './../../utility-functions/timestampToDate';
+import { timeStampToDate, dateAfterCompletion } from './../../utility-functions/timestampToDate';
 import { limitSentence } from './../../utility-functions/limitSentence';
 
 
@@ -28,7 +28,10 @@ const Ticket = ({ ticket, type }) => {
             </div>
             <div className="ticket__details">
                 <h5 className="ticket__created">Created - {timeStampToDate(createdAt)}</h5>
-                <h6 className="ticket__assigned">{dateBeforeDeadline(deadline)}</h6>
+                {type === 'completed' ?
+                    <h6 className="ticket__assigned">{dateAfterCompletion(ticket.data.completedOn)}</h6> :
+                    <h6 className="ticket__assigned">{dateBeforeDeadline(deadline)}</h6>
+                }
             </div>
         </Link>
     )

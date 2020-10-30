@@ -10,9 +10,10 @@ import { selectUserDetail } from '../../Redux/user/user.selectors';
 import { asyncGetUserDetail } from '../../Redux/user/user.actions';
 import { selectCurrentUser, selectIsGettingUserDetail } from './../../Redux/user/user.selectors';
 import Loader from 'react-loader-spinner';
+import { toggleSidebar } from './../../Redux/user/user.actions';
 
 
-const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail }) => {
+const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail, toggleSideBar }) => {
 
     useEffect(() => {
         const getUser = async () => {
@@ -20,6 +21,12 @@ const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail }
         }
         getUser();
     }, [getUserDetail, currentUser.uid]);
+
+    const closeSideBar = () => {
+        if(window.innerWidth < 580) {
+            toggleSideBar();
+        }
+    }
 
     return (
         <div className="sidebar">
@@ -45,31 +52,31 @@ const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail }
                 </div>
             </div>
             <ul className="sidebar__list">
-                <NavLink to="/" className="sidebar__link">
+                <NavLink to="/" className="sidebar__link" onClick={closeSideBar} >
                     <AiFillHome className="sidebar__link-icon" />
                     <span>Home</span>
                 </NavLink>
-                <NavLink to="/new-task" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/new-task" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <AiOutlineAppstoreAdd className="sidebar__link-icon" />
                     <span>Raise Ticket</span>
                 </NavLink>
-                <NavLink to="/pending" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/pending" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <AiOutlineClockCircle className="sidebar__link-icon" />
                     <span>pending</span>
                 </NavLink>
-                <NavLink to="/due-today" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/due-today" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <BiCalendarWeek className="sidebar__link-icon" />
                     <span>Due Today</span>
                 </NavLink>
-                <NavLink to="/overdue" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/overdue" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <BiCommentError className="sidebar__link-icon" />
                     <span>Overdue</span>
                 </NavLink>
-                <NavLink to="/completed" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/completed" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <BiCheckDouble className="sidebar__link-icon" />
                     <span>Completed</span>
                 </NavLink>
-                <NavLink to="/register-staff" className="sidebar__link" activeClassName="sidebar__active" >
+                <NavLink to="/register-staff" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
                     <FiUserPlus className="sidebar__link-icon" />
                     <span>Register Staff</span>
                 </NavLink>
@@ -85,7 +92,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-    getUserDetail: id => dispatch(asyncGetUserDetail(id))
+    getUserDetail: id => dispatch(asyncGetUserDetail(id)),
+    toggleSideBar: () => dispatch(toggleSidebar())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps) (Sidebar);

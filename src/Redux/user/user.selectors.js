@@ -16,3 +16,8 @@ export const selectIsGettingUserDetail = createSelector(
     [selectUser],
     user => user.isGettingUserDetail
 );
+
+export const selectSidebarState = createSelector(
+    [selectUser],
+    user => user.sideBarOpen
+);

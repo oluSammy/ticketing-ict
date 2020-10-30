@@ -50,7 +50,7 @@ const DueToday = ({ getDueToday, userDetail, isGettingUserDetail, isGettingDue, 
                 </div> :
                 <div className="tickets__container">
                     {dueToday && dueToday.map(task => <Ticket key={task.id} ticket={task} type='due-today' />)}
-                    {dueToday && !dueToday.length && prevDoc !== undefined &&
+                    {prevDoc !== undefined &&
                     <div onClick={getMoreDueTasks} style={{display: 'flex', justifyContent: 'center'}} >
                         <MoreButton />
                     </div>}
