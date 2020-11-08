@@ -41,7 +41,7 @@ export const asyncGetOverdue = staffName => {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
             const dueRef = firestore.collection('tickets').where('completed', '==', false)
-            .where('assignedTo', '==', `${staffName}`).where('deadline', '<', today).orderBy('deadline', 'desc').limit(10);
+            .where('assignedTo', '==', `${staffName}`).where('deadline', '<', today).orderBy('deadline', 'desc').limit(20);
             dueRef.onSnapshot(docSnapshot => {
                 const dueTasks = [];
                 docSnapshot.docs.forEach(doc => dueTasks.push({ id: doc.id, data: doc.data() }));
@@ -63,7 +63,7 @@ export const asyncGetMoreOverdue = (staffName, prevDoc) => {
             today.setHours(0, 0, 0, 0);
             const dueRef = firestore.collection('tickets').where('completed', '==', false)
             .where('assignedTo', '==', `${staffName}`).where('deadline', '<', today)
-            .orderBy('deadline', 'desc').startAfter(prevDoc).limit(10);
+            .orderBy('deadline', 'desc').startAfter(prevDoc).limit(20);
             dueRef.onSnapshot(docSnapshot => {
                 const dueTasks = [];
                 docSnapshot.docs.forEach(doc => dueTasks.push({ id: doc.id, data: doc.data() }));
