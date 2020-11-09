@@ -37,15 +37,16 @@ const NewTask = ({ currentUser, userDetail, addTask, isAddingTickets }) => {
             <form onSubmit={createTask} className="new-task__form">
                 <div className="new-task__form-group">
                     <label htmlFor="name" className="new-task__label">Name:</label>
-                    <input type="text" className="new-task__input" id="name" name="name" required value={ticket.name} />
+                    <input type="text" className="new-task__input" id="name" name="name" readOnly required value={ticket.name} />
                 </div>
                 <div className="new-task__form-group">
                     <label htmlFor="email" className="new-task__label">Email:</label>
-                    <input type="email" className="new-task__input" id="email" name="email" required value={ticket.email} />
+                    <input type="email" className="new-task__input" id="email" name="email" readOnly required value={ticket.email} />
                 </div>
                 <div className="new-task__form-group">
                     <label htmlFor="designation" className="new-task__label">Designation:</label>
-                    <input type="text" className="new-task__input" id="designation" name="designation" required value={ticket.designation} />
+                    <input type="text" className="new-task__input" id="designation" name="designation" readOnly
+                    required value={ticket.designation} />
                 </div>
                 <div className="new-task__form-group">
                     <label htmlFor="title" className="new-task__label">Title:</label>

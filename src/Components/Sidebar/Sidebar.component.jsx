@@ -28,6 +28,52 @@ const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail, 
         }
     }
 
+    const sidebarLinks = [
+        {
+            link: '/',
+            icon: <AiFillHome className="sidebar__link-icon" />,
+            text: 'Home',
+            NoActiveBg: false
+        },
+        {
+            link: '/new-task',
+            icon: <AiOutlineAppstoreAdd className="sidebar__link-icon" />,
+            text: 'Raise Ticket',
+            NoActiveBg: true
+        },
+        {
+            link: '/pending',
+            icon: <AiOutlineClockCircle className="sidebar__link-icon" />,
+            text: 'Pending',
+            NoActiveBg: true
+        },
+        {
+            link: '/due-today',
+            icon: <BiCalendarWeek className="sidebar__link-icon" />,
+            text: 'Due Today',
+            NoActiveBg: true
+        },
+        {
+            link: '/overdue',
+            icon: <BiCommentError className="sidebar__link-icon" />,
+            text: 'Overdue',
+            NoActiveBg: true
+        },
+        {
+            link: '/completed',
+            icon: <BiCheckDouble className="sidebar__link-icon" />,
+            text: 'Completed',
+            NoActiveBg: true
+        },
+        {
+            link: '/register-staff',
+            icon: <FiUserPlus className="sidebar__link-icon" />,
+            text: 'Register Staff',
+            NoActiveBg: true
+        }
+    ];
+
+
     return (
         <div className="sidebar">
             <div className="sidebar__user">
@@ -52,34 +98,18 @@ const Sidebar = ({ userDetail, currentUser, getUserDetail, isGettingUserDetail, 
                 </div>
             </div>
             <ul className="sidebar__list">
-                <NavLink to="/" className="sidebar__link" onClick={closeSideBar} >
-                    <AiFillHome className="sidebar__link-icon" />
-                    <span>Home</span>
-                </NavLink>
-                <NavLink to="/new-task" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <AiOutlineAppstoreAdd className="sidebar__link-icon" />
-                    <span>Raise Ticket</span>
-                </NavLink>
-                <NavLink to="/pending" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <AiOutlineClockCircle className="sidebar__link-icon" />
-                    <span>pending</span>
-                </NavLink>
-                <NavLink to="/due-today" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <BiCalendarWeek className="sidebar__link-icon" />
-                    <span>Due Today</span>
-                </NavLink>
-                <NavLink to="/overdue" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <BiCommentError className="sidebar__link-icon" />
-                    <span>Overdue</span>
-                </NavLink>
-                <NavLink to="/completed" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <BiCheckDouble className="sidebar__link-icon" />
-                    <span>Completed</span>
-                </NavLink>
-                <NavLink to="/register-staff" className="sidebar__link" activeClassName="sidebar__active" onClick={closeSideBar} >
-                    <FiUserPlus className="sidebar__link-icon" />
-                    <span>Register Staff</span>
-                </NavLink>
+                {sidebarLinks.map(link =>
+                    link.NoActiveBg ?
+                    <NavLink key={link.text} to={link.link} className="sidebar__link" activeClassName="sidebar__active"
+                    onClick={closeSideBar} >
+                        {link.icon}
+                        <span>{link.text}</span>
+                    </NavLink> :
+                    <NavLink key={link.text} to={link.link} className="sidebar__link" onClick={closeSideBar} >
+                        {link.icon}
+                        <span>{link.text}</span>
+                    </NavLink>
+                )}
             </ul>
         </div>
     )

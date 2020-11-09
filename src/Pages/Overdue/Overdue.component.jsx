@@ -50,7 +50,7 @@ const Overdue = ({ getOverdueTasks, userDetail, overDueTasks, isGettingUserDetai
                 </div> :
                 <div className="tickets__container">
                     {overDueTasks && overDueTasks.map(task => <Ticket key={task.id} ticket={task} type='overdue' />)}
-                    {overDueTasks && prevDoc !== undefined ?
+                    {overDueTasks && overDueTasks.length >= 20 && overDueTasks && prevDoc !== undefined ?
                     <div onClick={getMoreTasks} style={{display: 'flex', justifyContent: 'center'}} >
                         <MoreButton />
                     </div> : ''}

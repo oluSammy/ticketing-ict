@@ -51,7 +51,7 @@ const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
             </div> :
             <div className="tickets__container">
                 {pendingTasks && pendingTasks.map(task => <Ticket key={task.id} ticket={task} type="pending" />)}
-                {prevDoc !== undefined &&
+                {pendingTasks && pendingTasks.length >= 20 && prevDoc !== undefined &&
                 <div onClick={() => getMoreTasks()} style={{display: 'flex', justifyContent: 'center'}} >
                     <MoreButton />
                 </div>}
