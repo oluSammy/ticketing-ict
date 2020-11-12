@@ -16,12 +16,12 @@ const Completed = ({ getCompletedTasks, userDetail, completed, isGettingUserDeta
     isGettingCompleted, prevDoc, getMoreCompletedTasks }) => {
     useEffect(() => {
         const getTasks = async () => {
-            userDetail && await getCompletedTasks(`${userDetail.firstName} ${userDetail.surname}`)
+            userDetail && await getCompletedTasks(userDetail.uid)
         }
         !completed && getTasks();
     }, [userDetail, getCompletedTasks, completed]);
     const getMoreTasks = async () => {
-        await getMoreCompletedTasks(`${userDetail.firstName} ${userDetail.surname}`, prevDoc)
+        await getMoreCompletedTasks(userDetail.uid, prevDoc)
     }
     return (
         <div className="pending">

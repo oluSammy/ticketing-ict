@@ -34,14 +34,14 @@ const getMoreDueTodayFailure = errMsg => ({
     payload: errMsg
 });
 
-export const asyncGetDueToday = (staffName) => {
+export const asyncGetDueToday = (uid) => {
     return dispatch => {
         try {
             dispatch(getDueTodayStart());
             const startOfDay = new Date();
             startOfDay.setHours(0, 0, 0, 0);
             const ticketRef = firestore.collection('tickets').where('deadline', '==', startOfDay)
-            .where('assignedTo', '==', `${staffName}`).where('completed', '==', false)
+            .where('assignedTo', '==', `${uid}`).where('completed', '==', false)
             .orderBy('createdAt', 'desc').limit(20);
             ticketRef.onSnapshot(docSnapshot => {
                 let tasks = [];
@@ -58,14 +58,14 @@ export const asyncGetDueToday = (staffName) => {
     }
 }
 
-export const asyncGetMoreDueToday = (staffName, prevDoc) => {
+export const asyncGetMoreDueToday = (uid, prevDoc) => {
     return dispatch => {
         try {
             dispatch(getMoreDueTodayStart());
             const startOfDay = new Date();
             startOfDay.setHours(0, 0, 0, 0);
             const ticketRef = firestore.collection('tickets').where('deadline', '==', startOfDay)
-            .where('assignedTo', '==', `${staffName}`).where('completed', '==', false).orderBy('createdAt', 'desc')
+            .where('assignedTo', '==', `${uid}`).where('completed', '==', false).orderBy('createdAt', 'desc')
             .startAfter(prevDoc).limit(20);
             ticketRef.onSnapshot(docSnapshot => {
                 let tasks = [];

@@ -18,13 +18,13 @@ const Pending = ({ userDetail, getPendingTasks, pendingTasks, isGettingPending,
 
     useEffect(() => {
         const getTasks = async () => {
-            await getPendingTasks(`${userDetail.firstName} ${userDetail.surname}`);
+            await getPendingTasks(userDetail.uid);
         }
         userDetail && !pendingTasks && getTasks();
     }, [userDetail, getPendingTasks, pendingTasks]);
 
     const getMoreTasks = async () => {
-        await getMorePendingTasks(`${userDetail.firstName} ${userDetail.surname}`, prevDoc);
+        await getMorePendingTasks(userDetail.uid, prevDoc);
     }
 
     return (
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => ({
     getMorePendingTasks: (staffName, prevDoc) => dispatch(asyncGetMorePending(staffName, prevDoc))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps) (Pending)
+export default connect(mapStateToProps, mapDispatchToProps) (Pending);

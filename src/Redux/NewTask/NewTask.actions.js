@@ -18,7 +18,7 @@ const addTicketFailure = errMsg => ({
 export const asyncAddTicket = ticket => {
     return async dispatch => {
         try {
-            const { name, email, designation, title, task } = ticket;
+            const { name, email, designation, title, task, uid } = ticket;
             dispatch(addTicketStart());
             const ticketRef = firestore.collection("tickets");
             await ticketRef.add({
@@ -30,7 +30,8 @@ export const asyncAddTicket = ticket => {
                 task,
                 resolved: false,
                 assigned: false,
-                createdAt: FieldValue
+                createdAt: FieldValue,
+                senderUid: uid
             });
             dispatch(addTicketSuccess());
             Swal.fire(

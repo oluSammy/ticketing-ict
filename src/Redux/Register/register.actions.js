@@ -31,7 +31,8 @@ export const asyncRegisterStaff = staff => {
                     surname: lastName,
                     userRight: 'staff',
                     designation,
-                    email
+                    email,
+                    uid: `${userCredential.user.uid}`
                 });
             });
             dispatch(registerSuccess());

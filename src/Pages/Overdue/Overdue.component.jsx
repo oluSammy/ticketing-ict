@@ -17,14 +17,14 @@ const Overdue = ({ getOverdueTasks, userDetail, overDueTasks, isGettingUserDetai
 
     useEffect(() => {
         const getTask = async () => {
-            userDetail && await getOverdueTasks(`${userDetail.firstName} ${userDetail.surname}`);
+            userDetail && await getOverdueTasks(userDetail.uid);
         }
         !overDueTasks && getTask();
 
     }, [getOverdueTasks, userDetail, overDueTasks]);
 
     const getMoreTasks = async () => {
-        await getMoreOverdue(`${userDetail.firstName} ${userDetail.surname}`, prevDoc)
+        await getMoreOverdue(userDetail.uid, prevDoc);
     }
 
     return (

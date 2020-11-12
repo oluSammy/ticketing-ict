@@ -35,11 +35,11 @@ const getMoreCompletedFailure = errMsg => ({
     payload: errMsg
 });
 
-export const asyncGetCompleted = (staffName) => {
+export const asyncGetCompleted = (uid) => {
     return dispatch => {
         try {
             dispatch(getCompletedStart());
-            const taskRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
+            const taskRef = firestore.collection('tickets').where('assignedTo', '==', `${uid}`)
             .where('completed', '==', true).orderBy('completedOn', 'desc').limit(20);
             taskRef.onSnapshot(docSnapshot => {
                 const completedTask = [];
@@ -54,11 +54,11 @@ export const asyncGetCompleted = (staffName) => {
     }
 }
 
-export const asyncGetMoreCompleted = (staffName, prevDoc) => {
+export const asyncGetMoreCompleted = (uid, prevDoc) => {
     return dispatch => {
         try {
             dispatch(getMoreCompletedStart());
-            const taskRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
+            const taskRef = firestore.collection('tickets').where('assignedTo', '==', `${uid}`)
             .where('completed', '==', true).orderBy('completedOn', 'desc').startAfter(prevDoc).limit(20);
             taskRef.onSnapshot(docSnapshot => {
                 const completedTask = [];

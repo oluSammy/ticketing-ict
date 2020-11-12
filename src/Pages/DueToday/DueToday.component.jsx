@@ -18,13 +18,13 @@ const DueToday = ({ getDueToday, userDetail, isGettingUserDetail, isGettingDue, 
 
     useEffect(() => {
         const getTask = async () => {
-            userDetail && await getDueToday(`${userDetail.firstName} ${userDetail.surname}`);
+            userDetail && await getDueToday(userDetail.uid);
         }
         !dueToday && getTask();
     }, [getDueToday, userDetail, dueToday]);
 
     const getMoreDueTasks = async () => {
-        await getMoreTasks(`${userDetail.firstName} ${userDetail.surname}`, prevDoc);
+        await getMoreTasks(userDetail.uid, prevDoc);
     }
 
     return (

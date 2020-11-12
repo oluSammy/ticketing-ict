@@ -34,12 +34,12 @@ const getMorePendingFailure = errMsg => ({
     payload: errMsg
 });
 
-export const asyncGetPending = staffName => {
+export const asyncGetPending = staffId => {
     return async dispatch => {
         try {
             dispatch(getPendingStart());
-            const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
-            .where('completed', '==', false).orderBy('deadline').limit(1);
+            const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffId}`)
+            .where('completed', '==', false).orderBy('deadline').limit(20);
             pendingRef.onSnapshot(docSnapshot => {
                 const pendingTasks = [];
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
@@ -53,12 +53,12 @@ export const asyncGetPending = staffName => {
     }
 }
 
-export const asyncGetMorePending = (staffName, prevDoc) => {
+export const asyncGetMorePending = (staffId, prevDoc) => {
     return async dispatch => {
         try {
             dispatch(getMorePendingStart());
-            const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffName}`)
-            .where('completed', '==', false).orderBy('deadline').startAfter(prevDoc).limit(1);
+            const pendingRef = firestore.collection('tickets').where('assignedTo', '==', `${staffId}`)
+            .where('completed', '==', false).orderBy('deadline').startAfter(prevDoc).limit(20);
             pendingRef.onSnapshot(docSnapshot => {
                 const pendingTasks = [];
                 docSnapshot.docs.forEach(doc => pendingTasks.push({ id: doc.id, data: doc.data() }));
